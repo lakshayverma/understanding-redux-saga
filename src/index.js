@@ -4,9 +4,32 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+// Redux
+import { createStore, applyMiddleware, compose } from 'redux';
+import { Provider } from "react-redux";
+import createSagaMiddlewre from 'redux-saga';
+
+import { logger } from 'redux-logger';
+
+// Custom Redux
+import rootReducer from "./redux/reducer/index";
+import rootSaga from "./redux/saga/index";
+
+// Saga
+const sagaMiddleware = createSagaMiddlewre();
+sagaMiddleware.run(rootSaga);
+
+// Global Store
+const globalStore = createStore(
+  rootReducer,
+  applyMiddleware(sagaMiddleware, logger)
+)
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={globalStore}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
