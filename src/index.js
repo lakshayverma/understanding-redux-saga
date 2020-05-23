@@ -17,13 +17,15 @@ import rootSaga from "./redux/saga/index";
 
 // Saga
 const sagaMiddleware = createSagaMiddlewre();
-sagaMiddleware.run(rootSaga);
 
 // Global Store
 const globalStore = createStore(
   rootReducer,
   applyMiddleware(sagaMiddleware, logger)
 )
+
+
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <React.StrictMode>
