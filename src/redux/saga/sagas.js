@@ -5,7 +5,7 @@ import { actionsSupported as userActions } from '../reducer/bookReducer';
 const getRecords = (isbn = null) => {
     console.log("Getting Records");
 
-    const results = fetch('https://www.googleapis.com/books')
+    const results = fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`)
         .then(response => response.json());
 
     return results;
@@ -22,7 +22,7 @@ function* fetchBook(action) {
 }
 
 function* mySaga() {
-    yield takeLatest(userActions.REQUESTED)
+    yield takeLatest(userActions.REQUESTED, fetchBook)
 }
 
 export default mySaga;
