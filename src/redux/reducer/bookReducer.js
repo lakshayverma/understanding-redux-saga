@@ -6,7 +6,7 @@ export const actionsSupported = {
     "FAILED": "USER_FETCH_FAILED"
 };
 
-const bookReducer = (state, action) => {
+export const bookReducer = (state, action) => {
     switch (action.type) {
         case actionsSupported.REQUESTED:
             return {
@@ -22,5 +22,3 @@ const bookReducer = (state, action) => {
             };
     }
 }
-
-export default bookReducer;
