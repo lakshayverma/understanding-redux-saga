@@ -10,7 +10,7 @@ function App() {
 
       <div className="App-header">
         <Header />
-        <div class="container">
+        <div className="container">
           <SearchBar />
           <SearchResults />
         </div>
