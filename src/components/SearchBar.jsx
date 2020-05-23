@@ -8,7 +8,7 @@ function SearchBar() {
     const dispatch = useDispatch();
     const [isbn, setisbn] = React.useState('0545162076');
 
-    const getUserData = () => {
+    const getBookData = () => {
         // Get the Data for the User
         dispatch({
             type: actionsSupported.REQUESTED,
@@ -32,6 +32,7 @@ function SearchBar() {
                             </div>
 
                             <div className="col-auto">
+                                <button onClick={getBookData} className="btn btn-lg btn-success" >Search</button>
                             </div>
                         </div>
                     </div>
