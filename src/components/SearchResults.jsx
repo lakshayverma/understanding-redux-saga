@@ -8,7 +8,7 @@ function SearchResults() {
     return (
         // Show the Data from Redux here
         <pre style={{ fontSize: 20, color: "white", border: "2px solid", marginTop: "10%" }}>
-            {JSON.stringify(globalState.userReducer, null, 2)}
+            {JSON.stringify(globalState.bookReducer, null, 2)}
         </pre>
     );
 }
